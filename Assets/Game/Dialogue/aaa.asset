@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde344094664e6a49a96b1fea51685e0, type: 3}
+  m_Name: aaa
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 7118947468954628174}
+  - {fileID: 8797648405510405350}
+  - {fileID: 6649351224599375930}
+  newOffsetPos: {x: 250, y: 0}
+--- !u!114 &6649351224599375930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 649286cb-0ef6-4bd9-80fb-a1947076eef6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ccc
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 500
+    y: 0
+    width: 200
+    height: 100
+--- !u!114 &7118947468954628174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 70428787-0bd9-417e-b42f-76a0872153b9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: aaa
+  children:
+  - 7820e900-c0b4-4112-a94d-45fc33b4ffcc
+  rect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 200
+    height: 100
+--- !u!114 &8797648405510405350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 7820e900-c0b4-4112-a94d-45fc33b4ffcc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: bbbb
+  children:
+  - 649286cb-0ef6-4bd9-80fb-a1947076eef6
+  rect:
+    serializedVersion: 2
+    x: 250
+    y: 0
+    width: 200
+    height: 100

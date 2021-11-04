@@ -1,0 +1,342 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8949862375425209304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: c0a169b3-5833-4538-a12e-fb6f908cbafa
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "hayat\u0131m boyunca burda ya\u015Fad\u0131m"
+  children:
+  - e3d0fcfb-c6ee-4166-b0ad-9dc7ec1422ea
+  rect:
+    serializedVersion: 2
+    x: 316
+    y: 168
+    width: 200
+    height: 100
+  onEnterAction: Test Selection
+  onExitAction: 
+--- !u!114 &-5685967385193692906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: b1f217bb-a8fc-4873-85d9-8243096219b8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "s\u0131k\u0131nt\u0131 yok ge\xE7ebilirsin"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1525
+    y: 311
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-5367830608890912167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 5517d48c-793d-4084-88e3-f69f21455782
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Kim?
+  children:
+  - b1f217bb-a8fc-4873-85d9-8243096219b8
+  rect:
+    serializedVersion: 2
+    x: 1243
+    y: 262
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4537924183887912087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: ad2e8cbf-b4ba-4fa4-ae62-760d442fb5a6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Yalanc\u0131 ali babay\u0131ben uydurdum"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1517
+    y: 91
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: Attack
+--- !u!114 &-3603263180757304109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 665544c0-eb18-446b-99b8-96ddd58e399f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: buralardan degil gibisin
+  children:
+  - 988154dc-58a4-45de-992c-82c4d6fbee42
+  - c0a169b3-5833-4538-a12e-fb6f908cbafa
+  rect:
+    serializedVersion: 2
+    x: 36
+    y: 243
+    width: 200
+    height: 100
+  onEnterAction: Test Root
+  onExitAction: aaaaaa
+--- !u!114 &-145315572476751001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 988154dc-58a4-45de-992c-82c4d6fbee42
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: buraya newtondan geldim
+  children:
+  - 41b486e3-340e-4d20-b55e-349a4fa47a63
+  rect:
+    serializedVersion: 2
+    x: 313
+    y: 345
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde344094664e6a49a96b1fea51685e0, type: 3}
+  m_Name: New in town
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -3603263180757304109}
+  - {fileID: -145315572476751001}
+  - {fileID: 1801349624151907058}
+  - {fileID: -5367830608890912167}
+  - {fileID: 5805093542184282887}
+  - {fileID: -8949862375425209304}
+  - {fileID: 6292874886019242076}
+  - {fileID: 3571598604856053885}
+  - {fileID: 1247020884885431994}
+  - {fileID: -4537924183887912087}
+  - {fileID: -5685967385193692906}
+  - {fileID: 6798611570480269575}
+  - {fileID: 2324877081230608106}
+  newOffsetPos: {x: 250, y: 0}
+--- !u!114 &1247020884885431994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: fd3a2ed9-e190-4c5d-a2d2-3f6382de0bfb
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "newtondan de\u011Fil burdan\u0131m"
+  children:
+  - e3d0fcfb-c6ee-4166-b0ad-9dc7ec1422ea
+  rect:
+    serializedVersion: 2
+    x: 768
+    y: 281
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &1801349624151907058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 41b486e3-340e-4d20-b55e-349a4fa47a63
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "newtonda h\u0131rs\u0131zl\u0131k oluyormu\u015F"
+  children:
+  - f55e9fef-a307-4713-8bd5-d4623b416727
+  - fd3a2ed9-e190-4c5d-a2d2-3f6382de0bfb
+  - 6b8754ea-5915-44d4-9501-f8dbc971499f
+  rect:
+    serializedVersion: 2
+    x: 547
+    y: 409
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &2324877081230608106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 9bf54331-c46e-4c1c-a190-49f60b5454cc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "yalanc\u0131 h\u0131rs\u0131zl\u0131\u011F\u0131 ben uydurdum"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1094
+    y: 525
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3571598604856053885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 3135bc1d-fe32-426d-944d-569d27bbb34b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "ali baby\u0131 iyi bilirim"
+  children:
+  - ad2e8cbf-b4ba-4fa4-ae62-760d442fb5a6
+  rect:
+    serializedVersion: 2
+    x: 1252
+    y: 93
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &5805093542184282887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: e3d0fcfb-c6ee-4166-b0ad-9dc7ec1422ea
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "o zaman ali babay\u0131 duymu\u015F olmal\u0131s\u0131n"
+  children:
+  - 5517d48c-793d-4084-88e3-f69f21455782
+  - 3135bc1d-fe32-426d-944d-569d27bbb34b
+  rect:
+    serializedVersion: 2
+    x: 1000
+    y: 109
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: Test AI Response
+--- !u!114 &6292874886019242076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: f55e9fef-a307-4713-8bd5-d4623b416727
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "ben bi s\u0131k\u0131nt\u0131 duymad\u0131m"
+  children:
+  - b1f217bb-a8fc-4873-85d9-8243096219b8
+  rect:
+    serializedVersion: 2
+    x: 1249
+    y: 404
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6798611570480269575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 6b8754ea-5915-44d4-9501-f8dbc971499f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "Hem de ne h\u0131rs\u0131zl\u0131k"
+  children:
+  - 9bf54331-c46e-4c1c-a190-49f60b5454cc
+  rect:
+    serializedVersion: 2
+    x: 813
+    y: 486
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 

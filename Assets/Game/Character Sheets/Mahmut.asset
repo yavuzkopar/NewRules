@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e36c7bf6b5b554b947b2176f7153a9, type: 3}
+  m_Name: Mahmut
+  m_EditorClassIdentifier: 
+  art: 4
+  combat: 5
+  charizma: 4
+  perception: 8
+  abovv: 4
+  canoyy: 8

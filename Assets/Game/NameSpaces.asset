@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7727148340686574814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 08007610-28c6-4e79-8cc8-daeaa2a311f6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: AI
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 322
+    y: 12
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2860078834326001414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 788b27ff-cecb-4c7d-871b-2dec54f4146e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Control
+  children:
+  - 8efe1152-0d99-4305-bb90-d2a4b50d8771
+  rect:
+    serializedVersion: 2
+    x: 313
+    y: 254
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde344094664e6a49a96b1fea51685e0, type: 3}
+  m_Name: NameSpaces
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 6019693014023055592}
+  - {fileID: -7727148340686574814}
+  - {fileID: -2860078834326001414}
+  - {fileID: 3531908522316944484}
+  newOffsetPos: {x: 250, y: 0}
+--- !u!114 &3531908522316944484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 8efe1152-0d99-4305-bb90-d2a4b50d8771
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Dialogue
+  children:
+  - c94a0ba5-ecf9-4e16-b1c4-b9cd2c7adc64
+  rect:
+    serializedVersion: 2
+    x: 680
+    y: 270
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6019693014023055592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: c94a0ba5-ecf9-4e16-b1c4-b9cd2c7adc64
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Core
+  children:
+  - 08007610-28c6-4e79-8cc8-daeaa2a311f6
+  - 788b27ff-cecb-4c7d-871b-2dec54f4146e
+  - 8efe1152-0d99-4305-bb90-d2a4b50d8771
+  rect:
+    serializedVersion: 2
+    x: 36
+    y: 83
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
