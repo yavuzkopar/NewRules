@@ -29,13 +29,14 @@ namespace RPG.AI
             material = sph.GetComponent<MeshRenderer>().material;
             health = GetComponent<Health>();
             nameText.text = gameObject.name;
+            nameText.transform.rotation = Camera.main.transform.rotation;
         }
 
         // Update is called once per frame
         void Update()
         {
 
-            nameText.transform.rotation = Camera.main.transform.rotation;
+            
             currentState = currentState.Progress();
             Debug.Log(currentState);
 

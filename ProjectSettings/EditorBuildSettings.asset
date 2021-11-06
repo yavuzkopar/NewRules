@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Game/Scenes/Scene1.unity
+    path: Assets/Ana Sahne/Scene1.unity
     guid: 660d70756366ac847ac4902c39a34c19
   m_configObjects: {}

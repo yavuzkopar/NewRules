@@ -7688,7 +7688,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18274
+  m_Name: pb_Mesh34390
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11437,7 +11437,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18514
+  m_Name: pb_Mesh34630
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15286,6 +15286,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4363541893253703782, guid: ba3dc6820bceb834a921fa102f089edb, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363541893253703782, guid: ba3dc6820bceb834a921fa102f089edb, type: 3}
       propertyPath: m_Name
       value: Civilian Female
       objectReference: {fileID: 0}
@@ -17907,7 +17911,7 @@ GameObject:
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -24462,15 +24466,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8194845163937017286, guid: 039411c884affac4c9b2e7f923fb034a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8194845163937017286, guid: 039411c884affac4c9b2e7f923fb034a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8194845163937017286, guid: 039411c884affac4c9b2e7f923fb034a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8194845163937017286, guid: 039411c884affac4c9b2e7f923fb034a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
