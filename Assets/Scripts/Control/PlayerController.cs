@@ -100,14 +100,11 @@ namespace RPG.Control
 
         private void UpdateAnimator()
         {
-            Vector3 velocity;
-            velocity = /*GetComponent<NavMeshAgent>().velocity; */inputVector;
-         // velocity = followCam.forward;
-         Vector3 dir = direction - transform.position;
+
             Vector3 localVelocity = transform.InverseTransformDirection(vectorrr);
             float fspeedZ = localVelocity.z;
             float fspeedX = localVelocity.x;
-            Debug.Log(vectorrr);
+           
             animator.SetFloat("V", fspeedZ);
             animator.SetFloat("H", fspeedX);
 
