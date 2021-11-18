@@ -25,6 +25,8 @@ namespace RPG.Control
         private ScriptibleStats stats;
         public Transform followCam;
 
+        Vector3 vectorrr;
+
         void Start() {
             health = GetComponent<Health>();
             animator = GetComponent<Animator>();
@@ -48,7 +50,7 @@ namespace RPG.Control
             Vector3 bisey = followCam.forward;
             Vector3 bisey2 = followCam.right;
             
-            Debug.Log("bisey " + bisey);
+          //  Debug.Log("bisey " + bisey);
          //   Debug.Log("bisey2 " + bisey2);
        
             inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -57,22 +59,30 @@ namespace RPG.Control
             {
               //  Vector3 bisey = followCam.forward;
                 transform.position += followCam.forward.normalized * speed * Time.deltaTime;
+                vectorrr = followCam.forward;
             }  
             if (Input.GetKey(KeyCode.S))
             {
             //    Vector3 bisey = followCam.forward;
                 transform.position += -followCam.forward.normalized * speed * Time.deltaTime;
+                vectorrr = -followCam.forward;
             }   
             if (Input.GetKey(KeyCode.A))
             {
              //   Vector3 bisey = followCam.forward;
                 transform.position += -followCam.right.normalized * speed * Time.deltaTime;
+                vectorrr = -followCam.right;
             }   
             if (Input.GetKey(KeyCode.D))
             {
               //  Vector3 bisey = followCam.forward;
                 transform.position += followCam.right.normalized * speed * Time.deltaTime;
-            }    
+                vectorrr = followCam.right.normalized;
+            }   
+            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
+            {
+                vectorrr = Vector3.zero;
+            } 
             direction = new Vector3(lookPoint.position.x, transform.position.y, lookPoint.position.z);
             Vector3 dir = direction - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(dir.normalized);
@@ -93,10 +103,11 @@ namespace RPG.Control
             Vector3 velocity;
             velocity = /*GetComponent<NavMeshAgent>().velocity; */inputVector;
          // velocity = followCam.forward;
-            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+         Vector3 dir = direction - transform.position;
+            Vector3 localVelocity = transform.InverseTransformDirection(vectorrr);
             float fspeedZ = localVelocity.z;
             float fspeedX = localVelocity.x;
-
+            Debug.Log(vectorrr);
             animator.SetFloat("V", fspeedZ);
             animator.SetFloat("H", fspeedX);
 
