@@ -23,6 +23,7 @@ namespace RPG.Control
         Vector3 direction;
         RaycastObject raycastObject;
         private ScriptibleStats stats;
+        public Transform followCam;
 
         void Start() {
             health = GetComponent<Health>();
@@ -39,18 +40,48 @@ namespace RPG.Control
 
                 return;
             }
+            
             if (MoveTo()) return;
         }
         public bool MoveTo()
         {
+            Vector3 bisey = followCam.forward;
+            Vector3 bisey2 = followCam.right;
+            
+            Debug.Log("bisey " + bisey);
+         //   Debug.Log("bisey2 " + bisey2);
+       
             inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+            if (Input.GetKey(KeyCode.W))
+            {
+              //  Vector3 bisey = followCam.forward;
+                transform.position += followCam.forward.normalized * speed * Time.deltaTime;
+            }  
+            if (Input.GetKey(KeyCode.S))
+            {
+            //    Vector3 bisey = followCam.forward;
+                transform.position += -followCam.forward.normalized * speed * Time.deltaTime;
+            }   
+            if (Input.GetKey(KeyCode.A))
+            {
+             //   Vector3 bisey = followCam.forward;
+                transform.position += -followCam.right.normalized * speed * Time.deltaTime;
+            }   
+            if (Input.GetKey(KeyCode.D))
+            {
+              //  Vector3 bisey = followCam.forward;
+                transform.position += followCam.right.normalized * speed * Time.deltaTime;
+            }    
             direction = new Vector3(lookPoint.position.x, transform.position.y, lookPoint.position.z);
             Vector3 dir = direction - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(dir.normalized);
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
-            if (inputVector.magnitude > 0)
+            if (inputVector.magnitude > 0.2)
             {
-                transform.position += inputVector.normalized * speed * Time.deltaTime;
+               // transform.position += inputVector.normalized * speed * Time.deltaTime;
+              
+                 
                 UpdateAnimator();
                 return true;
             }
@@ -61,6 +92,7 @@ namespace RPG.Control
         {
             Vector3 velocity;
             velocity = /*GetComponent<NavMeshAgent>().velocity; */inputVector;
+         // velocity = followCam.forward;
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             float fspeedZ = localVelocity.z;
             float fspeedX = localVelocity.x;

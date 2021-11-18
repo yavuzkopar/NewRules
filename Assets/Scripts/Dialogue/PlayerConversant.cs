@@ -52,9 +52,23 @@ namespace RPG.Dialogue
         {
             return isChoosing;
         }
+        private IEnumerable<DialogueNode> FilterOnCondition(IEnumerable<DialogueNode> inputNode)
+        {
+            foreach (var node in inputNode)
+            {
+                if (node.CheckCondition(GetEvaluators()))
+                {
+                    yield return node;
+                }
+            }
+        }
+        IEnumerable<IPredicateEvaluator> GetEvaluators()
+        {
+            return GetComponents<IPredicateEvaluator>();
+        }
         public void Next()
         {
-            int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
+            int numPlayerResponses = FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
             if (numPlayerResponses > 0)
             {
                 isChoosing = true;
@@ -64,7 +78,7 @@ namespace RPG.Dialogue
                 return;
             }
 
-            DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
+            DialogueNode[] children = FilterOnCondition(currentDialogue.GetAIChildren(currentNode)).ToArray();
             int randomIndex = UnityEngine.Random.Range(0, children.Count());
             TriggerExitAction();
             currentNode = children[randomIndex];
@@ -110,11 +124,11 @@ namespace RPG.Dialogue
         }
         public bool HasNext()
         {
-            return currentDialogue.GetChildNodes(currentNode).Count() > 0;
+            return FilterOnCondition(currentDialogue.GetChildNodes(currentNode)).Count() > 0;
         }
         public IEnumerable<DialogueNode> GetChoises()
         {
-            return currentDialogue.GetPlayerChildren(currentNode);
+            return FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode));
 
         }
 

@@ -24,6 +24,35 @@ MonoBehaviour:
     height: 100
   onEnterAction: Test Selection
   onExitAction: 
+  condition:
+    predicate: 
+    paramaters: []
+--- !u!114 &-8514710620814372520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: a33cf8cc-3573-4ad0-a329-de4852313d69
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Tamamd\u0131r kanka"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1051
+    y: 614
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: 
+    paramaters: []
 --- !u!114 &-5685967385193692906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,6 +76,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    paramaters: []
 --- !u!114 &-5367830608890912167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +103,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    paramaters: []
 --- !u!114 &-4537924183887912087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +129,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: Attack
+  condition:
+    predicate: 
+    paramaters: []
 --- !u!114 &-3603263180757304109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +157,37 @@ MonoBehaviour:
     height: 100
   onEnterAction: Test Root
   onExitAction: aaaaaa
+  condition:
+    predicate: 
+    paramaters: []
+--- !u!114 &-2647040208722844254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19de9b2cba0bff44e9e30260e866648a, type: 3}
+  m_Name: 5457feed-4664-4f32-bb64-f56c434e68ce
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "Questi yap\u0131yorum"
+  children:
+  - a33cf8cc-3573-4ad0-a329-de4852313d69
+  rect:
+    serializedVersion: 2
+    x: 794
+    y: 579
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: HasQuest
+    paramaters:
+    - Birinci Quest
 --- !u!114 &-145315572476751001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,11 +207,14 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 313
-    y: 345
+    y: 401
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    paramaters: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +241,8 @@ MonoBehaviour:
   - {fileID: -5685967385193692906}
   - {fileID: 6798611570480269575}
   - {fileID: 2324877081230608106}
+  - {fileID: -2647040208722844254}
+  - {fileID: -8514710620814372520}
   newOffsetPos: {x: 250, y: 0}
 --- !u!114 &1247020884885431994
 MonoBehaviour:
@@ -194,6 +268,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    paramaters: []
 --- !u!114 &1801349624151907058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,11 +284,12 @@ MonoBehaviour:
   m_Name: 41b486e3-340e-4d20-b55e-349a4fa47a63
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: "newtonda h\u0131rs\u0131zl\u0131k oluyormu\u015F"
+  text: Gel sana quest vereyim
   children:
   - f55e9fef-a307-4713-8bd5-d4623b416727
   - fd3a2ed9-e190-4c5d-a2d2-3f6382de0bfb
   - 6b8754ea-5915-44d4-9501-f8dbc971499f
+  - 5457feed-4664-4f32-bb64-f56c434e68ce
   rect:
     serializedVersion: 2
     x: 547
@@ -220,6 +298,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    paramaters: []
 --- !u!114 &2324877081230608106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +324,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    paramaters: []
 --- !u!114 &3571598604856053885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +351,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    paramaters: []
 --- !u!114 &5805093542184282887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +379,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: Test AI Response
+  condition:
+    predicate: 
+    paramaters: []
 --- !u!114 &6292874886019242076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,12 +400,15 @@ MonoBehaviour:
   - b1f217bb-a8fc-4873-85d9-8243096219b8
   rect:
     serializedVersion: 2
-    x: 1249
-    y: 404
+    x: 869
+    y: 370
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    paramaters: []
 --- !u!114 &6798611570480269575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,14 +422,17 @@ MonoBehaviour:
   m_Name: 6b8754ea-5915-44d4-9501-f8dbc971499f
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: "Hem de ne h\u0131rs\u0131zl\u0131k"
+  text: bana quest ver
   children:
   - 9bf54331-c46e-4c1c-a190-49f60b5454cc
   rect:
     serializedVersion: 2
-    x: 813
-    y: 486
+    x: 803
+    y: 461
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    paramaters: []

@@ -21,6 +21,8 @@ namespace RPG.Dialogue
         string onEnterAction;
         [SerializeField]
         string onExitAction;
+        [SerializeField]
+        Condition condition;
         public Rect GetRect()
         {
             return rect;
@@ -44,7 +46,12 @@ namespace RPG.Dialogue
         public string GetOnExitAction()
         {
             return onExitAction;
+        }  
+         public bool CheckCondition(IEnumerable<IPredicateEvaluator> evaluators)
+        {
+            return condition.Check(evaluators);
         }
+        
 #if UNITY_EDITOR
         public void SetPosition(Vector2 newPos)
         {
@@ -69,6 +76,9 @@ namespace RPG.Dialogue
             children.Add(childID);
             EditorUtility.SetDirty(this);
         }
+
+     
+
         public void RemoveChildren(string childID)
         {
             Undo.RecordObject(this, "Remove Dialogue Link");
