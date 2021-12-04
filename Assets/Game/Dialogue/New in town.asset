@@ -314,12 +314,12 @@ MonoBehaviour:
   m_Name: 9bf54331-c46e-4c1c-a190-49f60b5454cc
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: "yalanc\u0131 h\u0131rs\u0131zl\u0131\u011F\u0131 ben uydurdum"
+  text: "Al bakal\u0131m questini"
   children: []
   rect:
     serializedVersion: 2
-    x: 1094
-    y: 525
+    x: 1097
+    y: 515
     width: 200
     height: 100
   onEnterAction: 

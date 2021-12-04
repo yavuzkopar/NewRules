@@ -38,7 +38,7 @@ namespace RPG.AI
 
             
             currentState = currentState.Progress();
-            Debug.Log(currentState);
+         //   Debug.Log(currentState);
 
         }
         public void Hit()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using RPG.Core;
 
 
 namespace RPG.Control
@@ -10,16 +11,20 @@ namespace RPG.Control
     {
         public List<GameObject> objects = new List<GameObject>();
         public GameObject prefabObject;
+        [SerializeField] GameObject atilacak;
+        [SerializeField] Transform atisyeri;
         public Transform parentObject;
         public int selectedAction = 0;
         public delegate void ActionToUse();
         public List<ActionToUse> actions = new List<ActionToUse>();
         private PlayerController playerController;
-        AllActions allActions;
+        public InHandActions allActions;
+
+        public KeyCode keyCode;
         void Start()
         {
             playerController = GetComponent<PlayerController>();
-            WeaponDeneme();
+          //  WeaponDeneme();
 
             for (int i = 0; i < objects.Count; i++)
             {
@@ -35,9 +40,19 @@ namespace RPG.Control
             }
         }
 
-        void WeaponDeneme()
+        public void WeaponDeneme()
         {
-            allActions = playerController.equipedWeapon.GetComponent<AllActions>();
+            if (playerController.equipedWeapon == null)
+            {
+                objects.Clear();
+                 for (int i = 0; i < parentObject.childCount; i++)
+            {
+                Destroy(parentObject.GetChild(i).gameObject);
+            }
+            actions.Clear();
+            return;
+            }
+            allActions = playerController.equipedWeapon.GetComponent<InHandActions>();
             objects.Clear();
             for (int i = 0; i < parentObject.childCount; i++)
             {
@@ -51,6 +66,8 @@ namespace RPG.Control
             }
 
             GetActions();
+            selectedAction = 0;
+            ColorSelection();
         }
 
         private void GetActions()
@@ -72,6 +89,9 @@ namespace RPG.Control
                     case "Savur":
                         actions.Add(Savur);
                         break;
+                    case "DropItem":
+                        actions.Add(DropItem);
+                        break;    
 
                     default:
                         break;
@@ -104,7 +124,8 @@ namespace RPG.Control
             }
             if (Input.GetMouseButtonDown(0))
             {
-                actions[selectedAction]();
+                if(actions.Count >=1)
+                    actions[selectedAction]();
             }
             if (Input.GetKeyDown(KeyCode.T))
             {
@@ -133,14 +154,38 @@ namespace RPG.Control
         }
         void Sapla()
         {
-            Debug.Log("Sapla");
+           GameObject obj = Instantiate(atilacak);
+           obj.transform.position= atisyeri.position;
+           
+
+        }
+        void DropItem()
+        {
+            
+            GameObject raycastObject = GameObject.FindGameObjectWithTag("lokk");
+            GameObject obj =playerController.equipedWeapon;
+            playerController.equipedWeapon = null;
+            obj.transform.position = raycastObject.transform.position;
+            obj.transform.rotation = Quaternion.identity;
+            obj.transform.SetParent(null);
+            
+            Debug.Log("DropItem");
+            WeaponDeneme();
         }
         void Savur()
         {
+            playerController.equipedWeapon.GetComponent<Rigidbody>().isKinematic = false;
+            playerController.equipedWeapon.GetComponent<Rigidbody>().AddForce((transform.forward + Vector3.up *.5f) * 600);
+             playerController.equipedWeapon.GetComponent<Rigidbody>().useGravity = true;
+            playerController.equipedWeapon.transform.SetParent(null);
+            
+            playerController.equipedWeapon = null;
+            WeaponDeneme();
             Debug.Log("Savur");
         }
         void Throw()
         {
+            
             playerController.animator.SetTrigger("attack");
         }
         void Read()

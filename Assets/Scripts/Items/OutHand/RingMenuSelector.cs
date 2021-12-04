@@ -2,16 +2,25 @@ using UnityEngine;
 using RPG.Core;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 using RPG.Dialogue;
+using RPG.Control;
 
 public class RingMenuSelector : MonoBehaviour {
+
+    public TextMeshProUGUI isimtext;
+    public TextMeshProUGUI effectRangeText;
+
+    public Transform isimci;
     public List<GameObject> objects = new List<GameObject>();
         public GameObject prefabObject;
         public Transform parentObject;
-        RingMenu ringMenu;
+        OutHandOptions ringMenu;
         RaycastObject raycastObject;
     private Vector2 normalizedMousePos;
     public float currentAngle;
+    public float effRange;
+    public float rangeToitem;
     public int selection;
     private int prviousSelection;
      public delegate void ActionToUse();
@@ -19,6 +28,8 @@ public class RingMenuSelector : MonoBehaviour {
 
         bool isSelectionActive;
         PlayerConversant PlayerConversant;
+    public Color posColor;
+    public Color negColor;    
 
     private void Start() {
             raycastObject = GameObject.FindGameObjectWithTag("lokk").GetComponent<RaycastObject>();
@@ -27,22 +38,36 @@ public class RingMenuSelector : MonoBehaviour {
         private void Update() 
         {
             if (Input.GetMouseButtonDown(1))
-            {
+            { 
                 parentObject.gameObject.SetActive(true);
-                parentObject.position = Input.mousePosition;
+                Debug.Log(parentObject.transform.position);
+               
+                parentObject.position = new Vector2(Mathf.Clamp(Input.mousePosition.x,300,1620),Mathf.Clamp(Input.mousePosition.y,300,780));
+                effectRangeText.text =raycastObject.gameObjectt.name + "\n" + "N/A";
+                effectRangeText.color=Color.black;
+                
+                isimci.gameObject.SetActive(true);
+                isimci.transform.position = parentObject.transform.position;
                     MenuDeneme();
                 Time.timeScale = 0;
             }
             if (Input.GetMouseButtonUp(1))
             {
+                
               Time.timeScale = 1;
                 parentObject.gameObject.SetActive(false);  
+                isimci.gameObject.SetActive(false);
+                isimtext.text = "Nothing";
+                
+                
                 if(isSelectionActive)
                 {
                     actions[selection](); 
                     isSelectionActive = false;
+                    
                 }
                  objects.Clear();
+                 actions.Clear();
                 for (int i = 0; i < parentObject.childCount; i++)
                 {
                     Destroy(parentObject.GetChild(i).gameObject);
@@ -60,14 +85,32 @@ public class RingMenuSelector : MonoBehaviour {
           
                objects[prviousSelection].GetComponent<Image>().color = Color.red;
                prviousSelection = selection;
-                   if(normalizedMousePos.magnitude >80f && normalizedMousePos.magnitude < 200f)
+               rangeToitem = Vector3.Distance(transform.position,raycastObject.gameObjectt.transform.position);
+                   if(normalizedMousePos.magnitude >150f && normalizedMousePos.magnitude < 350f)
               {
                 objects[selection].GetComponent<Image>().color = Color.green;
+              //  isimtext.text = ringMenu.items[selection].name;
+                effRange = ringMenu.items[selection].effectRange;
+                effectRangeText.text = raycastObject.gameObjectt.name + "\n" + 
+                ringMenu.items[selection].name + "\n" +"Effect Range: " + 
+                effRange.ToString() + "\n" +"Range: " + 
+                rangeToitem.ToString("F2");
+                if (rangeToitem <= effRange)
+                {
+                    effectRangeText.color = posColor;
+                }
+                else
+                    effectRangeText.color = negColor;
+                     
                 isSelectionActive = true;
               }
               else
               {
                   isSelectionActive=false;
+                //  isimtext.text = "Nothing";
+                  effectRangeText.text =raycastObject.gameObjectt.name;
+                  effectRangeText.color = Color.black;
+                  
               }
             
             }  
@@ -76,8 +119,8 @@ public class RingMenuSelector : MonoBehaviour {
         void MenuDeneme()
     {
         prviousSelection = 0;
-        if (raycastObject.gameObjectt.GetComponent<RingMenu>() == null) return;
-        ringMenu = raycastObject.gameObjectt.GetComponent<RingMenu>();
+        if (raycastObject.gameObjectt.GetComponent<OutHandOptions>() == null) return;
+        ringMenu = raycastObject.gameObjectt.GetComponent<OutHandOptions>();
         objects.Clear();
         for (int i = 0; i < parentObject.childCount; i++)
         {
@@ -89,6 +132,7 @@ public class RingMenuSelector : MonoBehaviour {
             objects.Add(obj);
             objects[i].GetComponent<Image>().color = Color.red;
             objects[i].GetComponent<Image>().sprite = ringMenu.items[i].icon;
+            
             obj.transform.rotation = Quaternion.Euler(0, 0, 360 / (ringMenu.items.Length * 2));
             obj.transform.Rotate(Vector3.forward, i * (360 / ringMenu.items.Length));
         }
@@ -122,6 +166,8 @@ public class RingMenuSelector : MonoBehaviour {
 #region ActionList
     void Talk()
         {
+             if(rangeToitem > effRange)
+                return;
             Debug.Log("Talk"); // konusma aksiyonu
             raycastObject.gameObjectt.GetComponent<AIConversant>().StartDialogue(PlayerConversant);
         }
@@ -131,10 +177,31 @@ public class RingMenuSelector : MonoBehaviour {
         }
         void Take()
         {
-            Debug.Log("Take"); // konusma aksiyonu
+            
+            PlayerController player = GetComponent<PlayerController>();
+            if(rangeToitem > effRange || player.equipedWeapon != null)
+                return;
+            GameObject obj = raycastObject.gameObjectt;   
+            obj.transform.parent = player.rightHand;
+            player.equipedWeapon = obj;
+            obj.transform.localPosition = Vector3.zero;
+            obj.transform.localEulerAngles = Vector3.zero;
+            if(player.equipedWeapon.GetComponent<Rigidbody>() != null){
+                player.equipedWeapon.GetComponent<Rigidbody>().useGravity =false;
+                player.equipedWeapon.GetComponent<Rigidbody>().isKinematic=true;
+            }
+            GetComponent<ActionSelection>().WeaponDeneme();
         }
         void Sit()
         {
+            if(rangeToitem > effRange)
+                return;
+                GetComponent<Animator>().ResetTrigger("isWalking");
+            GetComponent<Animator>().SetTrigger("sitt");
+            GetComponent<PlayerController>().isMoving = false;
+            Vector3 sitpos = raycastObject.gameObjectt.transform.position;
+            transform.position = raycastObject.gameObjectt.transform.position; 
+            transform.rotation = raycastObject.gameObjectt.transform.rotation;
             Debug.Log("Sit"); // konusma aksiyonu
         }
         void Open()

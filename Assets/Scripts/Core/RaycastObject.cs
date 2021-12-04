@@ -30,7 +30,7 @@ namespace RPG.Core
 
 
             //  bool hasHit = Physics.Raycast(ray, out hit,8000f,(1<<7));
-            bool hasHit = Physics.SphereCast(ray, 0.3f, out hit, 500f, (1 << 7));
+            bool hasHit = Physics.SphereCast(ray, 0.1f, out hit, 500f, (1 << 7));
 
 
             if (hasHit)
@@ -39,7 +39,7 @@ namespace RPG.Core
 
             }
             if (combatTarget == null) return;
-            Debug.Log(combatTarget.name);
+          //  Debug.Log(combatTarget.name);
             //if (combatTarget.gameObject.GetComponent<AIConversant>() != null)
             //{
             //    if (Input.GetMouseButtonDown(0))
@@ -69,7 +69,7 @@ namespace RPG.Core
             {
                 combatTarget = other.gameObject.GetComponent<Health>();
                 action = ActionState.TALK;
-                //   Debug.Log("TALK");
+                 //  Debug.Log(combatTarget.name);
             }
             else
                 interactableObj = other.gameObject;

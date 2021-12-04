@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Savun
   m_EditorClassIdentifier: 
   actionName: Savun
-  icon: {fileID: 21300000, guid: e6b6aa05d284c3844b4ab95c5cacbabf, type: 3}
+  icon: {fileID: 21300000, guid: 02ffcb1a9d2be1243bb760163306bac9, type: 3}

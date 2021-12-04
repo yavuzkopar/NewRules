@@ -12,12 +12,13 @@ namespace RPG.Control
     {
 
         [SerializeField] float speed;
+        [SerializeField] float jumpForce;
         public float rotationSpeed;
         Vector3 inputVector;
         Health health;
        public GameObject equipedWeapon;
         [SerializeField] Transform lookPoint;
-        public Transform rightHand;
+        public Transform rightHand = null;
         public bool isRunning = false;
         public Animator animator;
         Vector3 direction;
@@ -26,12 +27,14 @@ namespace RPG.Control
         public Transform followCam;
 
         Vector3 vectorrr;
-
+        Rigidbody rigid;
+        public bool isMoving = true;
         void Start() {
             health = GetComponent<Health>();
             animator = GetComponent<Animator>();
             raycastObject = lookPoint.gameObject.GetComponent<RaycastObject>();
             stats = GetComponent<BaseStats>().Stats;
+            rigid = GetComponent<Rigidbody>();
         }
 
         // Update is called once per frame
@@ -42,7 +45,14 @@ namespace RPG.Control
 
                 return;
             }
-            
+            if (Input.GetKey(KeyCode.E))
+            {
+                followCam.Rotate(Vector3.up * Time.deltaTime * 60);
+            }
+               if (Input.GetKey(KeyCode.Q))
+            {
+                followCam.Rotate(Vector3.up * Time.deltaTime * -60);
+            }
             if (MoveTo()) return;
         }
         public bool MoveTo()
@@ -60,33 +70,45 @@ namespace RPG.Control
               //  Vector3 bisey = followCam.forward;
                 transform.position += followCam.forward.normalized * speed * Time.deltaTime;
                 vectorrr = followCam.forward;
+                isMoving=true;
             }  
             if (Input.GetKey(KeyCode.S))
             {
             //    Vector3 bisey = followCam.forward;
                 transform.position += -followCam.forward.normalized * speed * Time.deltaTime;
                 vectorrr = -followCam.forward;
+                isMoving=true;
             }   
             if (Input.GetKey(KeyCode.A))
             {
              //   Vector3 bisey = followCam.forward;
                 transform.position += -followCam.right.normalized * speed * Time.deltaTime;
                 vectorrr = -followCam.right;
+                isMoving=true;
             }   
             if (Input.GetKey(KeyCode.D))
             {
               //  Vector3 bisey = followCam.forward;
                 transform.position += followCam.right.normalized * speed * Time.deltaTime;
                 vectorrr = followCam.right.normalized;
-            }   
+                isMoving=true;
+            }  
+            
+             if (Input.GetKeyDown(KeyCode.Space))
+            {
+              //  Vector3 bisey = followCam.forward;
+                rigid.AddForce((Vector3.up + transform.forward * .3f) * jumpForce , ForceMode.Impulse);
+            }  
             if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
             {
                 vectorrr = Vector3.zero;
             } 
+            if(isMoving){
             direction = new Vector3(lookPoint.position.x, transform.position.y, lookPoint.position.z);
             Vector3 dir = direction - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(dir.normalized);
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+            }
             if (inputVector.magnitude > 0.2)
             {
                // transform.position += inputVector.normalized * speed * Time.deltaTime;
@@ -138,7 +160,7 @@ namespace RPG.Control
                dist  = Vector3.Distance(transform.position, RaycastObject.combatTarget.transform.position);
                 if (dist <= 5f)
                 {
-                    RaycastObject.combatTarget.TakeDamage(10f);
+                    RaycastObject.combatTarget.TakeDamage(equipedWeapon.GetComponent<InHandActions>().damage);
                 }
             }
             if (Vector3.Distance(raycastObject.interactableObj.transform.position,transform.position)<4f)

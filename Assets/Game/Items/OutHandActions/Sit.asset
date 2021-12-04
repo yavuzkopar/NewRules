@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c8dd3f3a88a5e45a0e5afa7a5a2da8, type: 3}
   m_Name: Sit
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: e6b6aa05d284c3844b4ab95c5cacbabf, type: 3}
+  icon: {fileID: 21300000, guid: 02ffcb1a9d2be1243bb760163306bac9, type: 3}
+  effectRange: 5
