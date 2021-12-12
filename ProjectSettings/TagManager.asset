@@ -11,6 +11,8 @@ TagManager:
   - Civil
   - Wallvanisher
   - lokk
+  - Npc
+  - light
   layers:
   - Default
   - TransparentFX

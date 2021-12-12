@@ -154,25 +154,8 @@ namespace RPG.Control
         void Hit()
         {
             //Animasyon
-            float dist;
-            if (RaycastObject.combatTarget != null)
-            {
-               dist  = Vector3.Distance(transform.position, RaycastObject.combatTarget.transform.position);
-                if (dist <= 5f)
-                {
-                    RaycastObject.combatTarget.TakeDamage(equipedWeapon.GetComponent<InHandActions>().damage);
-                }
-            }
-            if (Vector3.Distance(raycastObject.interactableObj.transform.position,transform.position)<4f)
-            {
-                if (raycastObject.interactableObj.GetComponent<Enteractible>())
-                {
-                    raycastObject.interactableObj.transform.parent = rightHand;
-                    raycastObject.interactableObj.transform.localPosition = Vector3.zero;
-                   
-                    raycastObject.interactableObj.layer = LayerMask.NameToLayer("Default");
-                }
-            }
+           Debug.Log("Hit EVENT");
+          
         }
     }
 }

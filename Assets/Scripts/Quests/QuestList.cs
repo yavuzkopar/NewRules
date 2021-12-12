@@ -9,8 +9,10 @@ public class QuestList : MonoBehaviour, IPredicateEvaluator
 
     public void AddQuest(Quest quest){
         quests.Add(quest);
+        Instantiate(prefab,panel);
     }
-
+    public Transform panel;
+    public GameObject prefab;
     public void RemoveQuest(Quest quest)
     {
         quests.Remove(quest);

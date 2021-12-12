@@ -16,7 +16,7 @@ public class RingMenuSelector : MonoBehaviour {
         public GameObject prefabObject;
         public Transform parentObject;
         OutHandOptions ringMenu;
-        RaycastObject raycastObject;
+    
     private Vector2 normalizedMousePos;
     public float currentAngle;
     public float effRange;
@@ -32,7 +32,7 @@ public class RingMenuSelector : MonoBehaviour {
     public Color negColor;    
 
     private void Start() {
-            raycastObject = GameObject.FindGameObjectWithTag("lokk").GetComponent<RaycastObject>();
+            
             PlayerConversant = GetComponent<PlayerConversant>();
         }
         private void Update() 
@@ -43,7 +43,7 @@ public class RingMenuSelector : MonoBehaviour {
                 Debug.Log(parentObject.transform.position);
                
                 parentObject.position = new Vector2(Mathf.Clamp(Input.mousePosition.x,300,1620),Mathf.Clamp(Input.mousePosition.y,300,780));
-                effectRangeText.text =raycastObject.gameObjectt.name + "\n" + "N/A";
+                effectRangeText.text =RaycastObject.gameObjectt.name + "\n" + "N/A";
                 effectRangeText.color=Color.black;
                 
                 isimci.gameObject.SetActive(true);
@@ -85,13 +85,13 @@ public class RingMenuSelector : MonoBehaviour {
           
                objects[prviousSelection].GetComponent<Image>().color = Color.red;
                prviousSelection = selection;
-               rangeToitem = Vector3.Distance(transform.position,raycastObject.gameObjectt.transform.position);
+               rangeToitem = Vector3.Distance(transform.position,RaycastObject.gameObjectt.transform.position);
                    if(normalizedMousePos.magnitude >150f && normalizedMousePos.magnitude < 350f)
               {
                 objects[selection].GetComponent<Image>().color = Color.green;
               //  isimtext.text = ringMenu.items[selection].name;
                 effRange = ringMenu.items[selection].effectRange;
-                effectRangeText.text = raycastObject.gameObjectt.name + "\n" + 
+                effectRangeText.text = RaycastObject.gameObjectt.name + "\n" + 
                 ringMenu.items[selection].name + "\n" +"Effect Range: " + 
                 effRange.ToString() + "\n" +"Range: " + 
                 rangeToitem.ToString("F2");
@@ -108,7 +108,7 @@ public class RingMenuSelector : MonoBehaviour {
               {
                   isSelectionActive=false;
                 //  isimtext.text = "Nothing";
-                  effectRangeText.text =raycastObject.gameObjectt.name;
+                  effectRangeText.text =RaycastObject.gameObjectt.name;
                   effectRangeText.color = Color.black;
                   
               }
@@ -119,8 +119,8 @@ public class RingMenuSelector : MonoBehaviour {
         void MenuDeneme()
     {
         prviousSelection = 0;
-        if (raycastObject.gameObjectt.GetComponent<OutHandOptions>() == null) return;
-        ringMenu = raycastObject.gameObjectt.GetComponent<OutHandOptions>();
+        if (RaycastObject.gameObjectt.GetComponent<OutHandOptions>() == null) return;
+        ringMenu = RaycastObject.gameObjectt.GetComponent<OutHandOptions>();
         objects.Clear();
         for (int i = 0; i < parentObject.childCount; i++)
         {
@@ -169,10 +169,12 @@ public class RingMenuSelector : MonoBehaviour {
              if(rangeToitem > effRange)
                 return;
             Debug.Log("Talk"); // konusma aksiyonu
-            raycastObject.gameObjectt.GetComponent<AIConversant>().StartDialogue(PlayerConversant);
+            RaycastObject.gameObjectt.GetComponent<AIConversant>().StartDialogue(PlayerConversant);
         }
         void PickPocket()
         {
+            GameObject obj = RaycastObject.gameObjectt;
+            Destroy(obj);
             Debug.Log("Pickpocket"); // konusma aksiyonu
         }
         void Take()
@@ -181,7 +183,7 @@ public class RingMenuSelector : MonoBehaviour {
             PlayerController player = GetComponent<PlayerController>();
             if(rangeToitem > effRange || player.equipedWeapon != null)
                 return;
-            GameObject obj = raycastObject.gameObjectt;   
+            GameObject obj = RaycastObject.gameObjectt;   
             obj.transform.parent = player.rightHand;
             player.equipedWeapon = obj;
             obj.transform.localPosition = Vector3.zero;
@@ -199,9 +201,9 @@ public class RingMenuSelector : MonoBehaviour {
                 GetComponent<Animator>().ResetTrigger("isWalking");
             GetComponent<Animator>().SetTrigger("sitt");
             GetComponent<PlayerController>().isMoving = false;
-            Vector3 sitpos = raycastObject.gameObjectt.transform.position;
-            transform.position = raycastObject.gameObjectt.transform.position; 
-            transform.rotation = raycastObject.gameObjectt.transform.rotation;
+            Vector3 sitpos = RaycastObject.gameObjectt.transform.position;
+            transform.position = RaycastObject.gameObjectt.transform.position; 
+            transform.rotation = RaycastObject.gameObjectt.transform.rotation;
             Debug.Log("Sit"); // konusma aksiyonu
         }
         void Open()

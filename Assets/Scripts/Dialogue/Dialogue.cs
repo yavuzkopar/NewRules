@@ -15,14 +15,14 @@ namespace RPG.Dialogue
         Vector2 newOffsetPos = new Vector2(250, 0);
         Dictionary<string, DialogueNode> nodeLookUp = new Dictionary<string, DialogueNode>();
 
-#if UNITY_EDITOR
+
         private void Awake()
         {
 
 
             OnValidate();
         }
-#endif
+
         private void OnValidate()
         {
             nodeLookUp.Clear();
